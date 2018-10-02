@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MessageService} from "../message.service";
+import {project} from "./project";
 
 @Component({
   selector: 'app-projects-menu',
@@ -7,17 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsMenuComponent implements OnInit {
 
-  constructor() { }
+  projects: project[];
+
+  constructor(private messageServices: MessageService) { }
 
   ngOnInit() {
+    this.loadProject();
   }
 
+  loadProject(): void {
+    this.messageServices.getProjects().subscribe(projects => this.projects = projects);
+  }
 }
 
-export class project {
-  id: string;
-  name: string;
-  order: number;
-  indent: number;
-  comment_count: number
-}
