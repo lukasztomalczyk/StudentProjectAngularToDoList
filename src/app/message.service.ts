@@ -9,8 +9,7 @@ import {project} from "./projects-menu/project";
 export class MessageService {
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) {
+    private http: HttpClient) {
   }
 
   private projectsUrl = 'https://beta.todoist.com/API/v8/projects';
