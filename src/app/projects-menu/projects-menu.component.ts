@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from "../message.service";
 import {project} from "./project";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-projects-menu',
@@ -10,15 +11,22 @@ import {project} from "./project";
 export class ProjectsMenuComponent implements OnInit {
 
   projects: project[];
+  httpResponse: HttpResponse<project[]>;
 
-  constructor(private messageServices: MessageService) { }
+  constructor(private messageServices: MessageService) {
+  }
 
   ngOnInit() {
     this.loadProject();
   }
 
   loadProject(): void {
-    this.messageServices.getProjects().subscribe(projects => this.projects = projects);
+    this.messageServices.getProjects().subscribe(data => {
+      this.projects = { ...data.body } ;
+    });
   }
+
+  private transform(objects : any = []) {
+    return Object.values(objects);}
 }
 
