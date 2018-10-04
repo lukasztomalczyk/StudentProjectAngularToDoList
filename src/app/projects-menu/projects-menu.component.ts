@@ -22,11 +22,8 @@ export class ProjectsMenuComponent implements OnInit {
 
   loadProject(): void {
     this.messageServices.getProjects().subscribe(data => {
-      this.projects = { ...data.body } ;
+      this.projects = data.body;
     });
   }
-
-  private transform(objects : any = []) {
-    return Object.values(objects);}
 }
 

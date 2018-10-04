@@ -14,13 +14,13 @@ export class MessageService {
   }
 
   private projectsUrl = 'https://beta.todoist.com/API/v8/projects';
-
+  private headers = new HttpHeaders().set('Authorization', 'Bearer 9167fc0eadb744008afc14ca5d0757f454f17163')
+    .set('Content-Type', 'application/json');
 
   getProjects(): Observable<HttpResponse<project[]>> {
     return this.http.get<project[]>(
       this.projectsUrl, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer 9167fc0eadb7')
-          .set('Content-Type', 'application/json'),
+        headers: this.headers,
         observe: 'response'
       });
   }
