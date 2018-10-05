@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {CanActivate} from "@angular/router";
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from "@angular/router";
+import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements CanActivate {
 
   constructor() { }
 
-  ngOnInit() {
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return false;
   }
 
 }
