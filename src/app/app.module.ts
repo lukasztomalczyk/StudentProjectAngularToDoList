@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { RoutingModule } from "./routing/routing.module";
 import { AdminComponent } from './admin/admin.component';
 import { LoginFormComponent } from './home/login-form/login-form.component';
+import {FormBuilder, FormGroup, FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { LoginFormComponent } from './home/login-form/login-form.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule,
+    FormBuilder,
+    FormGroup
   ],
   providers: [AdminComponent],
   bootstrap: [AppComponent]
