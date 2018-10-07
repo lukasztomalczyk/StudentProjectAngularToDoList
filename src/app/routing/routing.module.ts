@@ -7,7 +7,8 @@ import {AdminComponent} from "../admin/admin.component";
 const routes: Routes = [
   {
     path: 'Admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AdminComponent]
   },
   {
     path: '',

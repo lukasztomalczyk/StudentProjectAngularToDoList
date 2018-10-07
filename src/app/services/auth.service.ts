@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
+import {User} from "./user";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  userLogin: boolean = false;
+  user: User = null;
+  isUserLogin: boolean = false;
 
   constructor() { }
 
-  get isUserLogin() {
-    return this.userLogin;
+  login(): void {
+    this.isUserLogin = true;
   }
 }

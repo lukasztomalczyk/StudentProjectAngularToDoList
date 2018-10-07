@@ -8,6 +8,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
 import { HomeComponent } from './home/home.component';
 import { RoutingModule } from "./routing/routing.module";
 import { AdminComponent } from './admin/admin.component';
+import { LoginFormComponent } from './home/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,15 @@ import { AdminComponent } from './admin/admin.component';
     ProjectsMenuComponent,
     UserNavComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [AdminComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
