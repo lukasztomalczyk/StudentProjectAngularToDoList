@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../services/user";
-import { FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -11,13 +13,27 @@ export class LoginFormComponent implements OnInit {
 
   userForm: FormGroup;
   user: User = null;
+  submitted = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder,
+              authServices: AuthService,
+              route: Router) { }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+
+  get f() {
+    return this.userForm.controls
   }
 
   login() {
-    console.log(this.userForm.value.name)
+    this.submitted = true;
+
+    if(this.userForm.invalid) { return; }
+
   }
 }

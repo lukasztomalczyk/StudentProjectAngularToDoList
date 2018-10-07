@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { RoutingModule } from "./routing/routing.module";
 import { AdminComponent } from './admin/admin.component';
 import { LoginFormComponent } from './home/login-form/login-form.component';
-import { FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [

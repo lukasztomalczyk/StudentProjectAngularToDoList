@@ -6,12 +6,13 @@
       <form class="login-form" [formGroup]="userForm" (ngSubmit)="login()">
         <div class="form-group">
           <label class="text-uppercase">Username</label>
-          <input type="text" class="form-control" id="user" [(ngModel)]="user.name" required placeholder="">
+          <input type="text" class="form-control" formControlName="name" placeholder="">
+
 
         </div>
         <div class="form-group">
           <label class="text-uppercase">Password</label>
-          <input type="password" class="form-control" id="password" [(ngModel)]="user.password" required placeholder="">
+          <input type="password" class="form-control" formControlName="password" placeholder="">
         </div>
 
         <div class="form-check">
