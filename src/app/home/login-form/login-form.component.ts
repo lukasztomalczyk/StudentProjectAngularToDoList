@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../services/user';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 
@@ -21,8 +21,8 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      password: ['', Validators.required]
+      name: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -35,6 +35,7 @@ export class LoginFormComponent implements OnInit {
 
     if (this.userForm.invalid) { return; }
 
-    console.log(name);
+    console.log(this.userForm.controls.name.value);
+    console.log(this.userForm.controls.password.value);
   }
 }
