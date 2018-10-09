@@ -12,13 +12,16 @@ export class AdminComponent implements CanActivate {
 
   constructor(
     private _auth: AuthService,
-    private _router: Router) {}
+    private _router: Router) {
+      console.log(this._auth.isUserLogin);
+    }
 
   canActivate(): boolean {
     if (this._auth.isUserLogin) { return true; }
 
-      this._router.navigate(['/Home']);
-      return false;
+      console.log(this._auth.isUserLogin);
+      this._router.navigate(['']);
+    // return false;
   }
 
 }

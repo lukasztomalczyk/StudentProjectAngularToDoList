@@ -16,8 +16,8 @@ export class LoginFormComponent implements OnInit {
   submitted = false;
 
   constructor(private formBuilder: FormBuilder,
-              authServices: AuthService,
-              route: Router) { }
+              private authServices: AuthService,
+              private route: Router) { }
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
@@ -26,18 +26,17 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  get f() {
-    return this.userForm.controls;
-  }
-
   login() {
     this.submitted = true;
 
     if (this.userForm.invalid) { return; }
-    if (this.userForm.controls.name.value !== 'asd') {
+
+    if (this.authServices.login(this.userForm.controls.name.value,
+        this.userForm.controls.password.value)) {
+        this.route.navigate(['/Admin']);
+      } else {
         this.userForm.controls.name.setErrors({'nomatch': true});
-    }
-    console.log(this.userForm.controls.name.value);
-    console.log(this.userForm.controls.password.value);
+        this.userForm.controls.password.setErrors({'nomatch': true});
+      }
   }
 }

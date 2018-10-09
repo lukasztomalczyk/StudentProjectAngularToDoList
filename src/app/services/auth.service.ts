@@ -4,11 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  isUserLogin: boolean = false;
+  isUserLogin = false;
 
   constructor() { }
 
-  login(): void {
-    this.isUserLogin = true;
+  login(login: string, pasword: string): boolean {
+    if (login === 'Admin' && pasword === 'admin') {
+      this.isUserLogin = true;
+      return true;
+    } else {
+      this.isUserLogin = false;
+      return false;
+    }
   }
 }
