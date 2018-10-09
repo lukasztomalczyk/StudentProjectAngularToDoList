@@ -34,7 +34,9 @@ export class LoginFormComponent implements OnInit {
     this.submitted = true;
 
     if (this.userForm.invalid) { return; }
-
+    if (this.userForm.controls.name.value !== 'asd') {
+        this.userForm.controls.name.setErrors({'nomatch': true});
+    }
     console.log(this.userForm.controls.name.value);
     console.log(this.userForm.controls.password.value);
   }
