@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../services/auth.service";
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +11,5 @@ export class HomeComponent implements OnInit {
   constructor(private _auth: AuthService) { }
 
   ngOnInit() {
-  }
-
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
-
-  login(): void {
-    this._auth.login();
   }
 }
