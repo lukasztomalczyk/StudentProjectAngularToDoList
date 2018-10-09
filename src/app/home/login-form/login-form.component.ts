@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../services/user";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
+import {User} from '../../services/user';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -23,17 +23,18 @@ export class LoginFormComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
   get f() {
-    return this.userForm.controls
+    return this.userForm.controls;
   }
 
   login() {
     this.submitted = true;
 
-    if(this.userForm.invalid) { return; }
+    if (this.userForm.invalid) { return; }
 
+    console.log(name);
   }
 }

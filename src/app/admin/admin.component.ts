@@ -1,6 +1,6 @@
 import {Component, Injectable} from '@angular/core';
-import {CanActivate, Router} from "@angular/router";
-import {AuthService} from "../services/auth.service";
+import {CanActivate, Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,8 +14,8 @@ export class AdminComponent implements CanActivate {
     private _auth: AuthService,
     private _router: Router) {}
 
-  canActivate(): boolean{
-    if (this._auth.isUserLogin) { return true }
+  canActivate(): boolean {
+    if (this._auth.isUserLogin) { return true; }
 
       this._router.navigate(['/Home']);
       return false;
