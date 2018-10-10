@@ -1,7 +1,10 @@
 
-  projects:
+<div class="pointer" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample"> Projects:</div>
+<hr>
+<div class="collapse show" id="collapseExample">
 <ul class="list-group">
-  <li  class="list-group-item" *ngFor="let project of projects">
-    <span class="">{{project.name}}</span>
+  <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let project of projects">
+    <span class="">{{project.name}}</span> <span class="badge badge-primary badge-pill">{{project.comment_count}}</span>
   </li>
 </ul>
+</div>
