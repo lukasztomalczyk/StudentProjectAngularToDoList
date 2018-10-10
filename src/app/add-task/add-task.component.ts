@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddTaskComponent implements OnInit {
 
   now: number;
+  displayAddForm = false;
 
   constructor() {
     this.now = Date.now();
