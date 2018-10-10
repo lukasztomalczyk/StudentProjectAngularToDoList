@@ -1,9 +1,10 @@
 <br>
+<form>
 <div class="card">
-    <h5 class="card-header">Featured</h5>
+    <h6 class="card-header">Today <small>{{ now | date:'yyyy.MM.dd'}}</small></h6>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <input type="text" class="form-control"><br>
+      <button type="submit" class="btn btn-danger">Add Task</button>&nbsp;&nbsp;<a href="" class="text-dark">Cancel</a>
     </div>
   </div>
+</form>

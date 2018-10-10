@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
+  now: number;
+
+  constructor() {
+    this.now = Date.now();
+  }
 
   ngOnInit() {
   }
-
 }
