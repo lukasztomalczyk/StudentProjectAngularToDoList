@@ -11,6 +11,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginFormComponent } from './home/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthService } from './services/auth.service';
     UserNavComponent,
     HomeComponent,
     AdminComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
