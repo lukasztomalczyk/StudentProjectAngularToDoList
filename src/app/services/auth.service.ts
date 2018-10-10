@@ -4,17 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  isUserLogin = false;
+  isUserLogin: boolean = JSON.parse(localStorage.getItem('loggedIn') || 'false');
 
   constructor() { }
 
   login(login: string, pasword: string): boolean {
     if (login === 'Admin' && pasword === 'admin') {
-      this.isUserLogin = true;
+      this.setLoggedIn(true);
       return true;
     } else {
-      this.isUserLogin = false;
+      this.setLoggedIn(false);
       return false;
     }
+  }
+
+  setLoggedIn(value: boolean) {
+    localStorage.setItem('loggedIn', 'true');
   }
 }
