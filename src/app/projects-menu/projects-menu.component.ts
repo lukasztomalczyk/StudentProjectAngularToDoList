@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {MessageService} from '../services/message.service';
 import {Project} from './project';
 import {HttpResponse} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-projects-menu',
@@ -13,7 +15,8 @@ export class ProjectsMenuComponent implements OnInit {
   projects: Project[];
   httpResponse: HttpResponse<Project[]>;
 
-  constructor(private messageServices: MessageService) {
+  constructor(private messageServices: MessageService,
+            private data: DataService) {
   }
 
   ngOnInit() {
@@ -24,6 +27,11 @@ export class ProjectsMenuComponent implements OnInit {
     this.messageServices.getProjects().subscribe(data => {
       this.projects = data.body;
     });
+  }
+
+
+  selectProject(id: number): void {
+    this.data.changeMessage(id.toString());
   }
 }
 

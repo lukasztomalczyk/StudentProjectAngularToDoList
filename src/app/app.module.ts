@@ -12,6 +12,7 @@ import { LoginFormComponent } from './home/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { SelectedProjectComponent } from './selected-project/selected-project.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
     HomeComponent,
     AdminComponent,
     LoginFormComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    SelectedProjectComponent
   ],
   imports: [
     BrowserModule,
