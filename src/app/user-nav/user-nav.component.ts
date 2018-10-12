@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {User} from '../services/user';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-nav',
@@ -23,11 +22,15 @@ export class UserNavComponent implements OnInit {
               private authServices: AuthService) { }
 
   ngOnInit() {
+    this.buildForm();
+    this.UserIsLoged();
+  }
+
+  buildForm() {
     this.userForm = this.formBuilder.group({
       name: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
-    this.UserIsLoged();
   }
 
   UserIsLoged() {

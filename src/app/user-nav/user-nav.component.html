@@ -1,3 +1,6 @@
+<div *ngIf="!userLogin; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
 <div *ngIf="!userLogin">
 <form class="form-inline" [formGroup]="userForm" (ngSubmit)="login()">
   <div class="form-group mx-sm-3 mb-2">
@@ -8,6 +11,17 @@
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && userForm.controls.password.errors }" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary mb-2">LoginIn</button>
+  <button type="submit" class="btn btn-danger mb-2">Login</button>
 </form>
 </div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <table>
+    <tr>
+      <td><span style="color:white"><img src="http://guidedlaunch.com/blog/wp-content/uploads/2012/01/users.png" height="40" width="40"> Witaj <b>Admin</b></span></td>
+      <td width="20%"></td>
+      <td><a href="#" style="color: white">Logout</a></td>
+    </tr>
+  </table>
+</ng-template>
