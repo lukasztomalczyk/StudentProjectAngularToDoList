@@ -20,17 +20,19 @@ export class SelectedProjectComponent implements OnInit {
               private messageServices: MessageService) { }
 
   ngOnInit() {
-    this.messageServices.getAlltasks().subscribe(sub => {
-      this.allTask = sub.body;
-   });
-
-    this.data.currentMessage.subscribe(message => { this.message = message;
-    this.getSelectedTask(+this.message);
-    //  console.log(this.allTask);
-       });
+    this.loadTasks();
+    this.selectedTask();
   }
 
+  loadTasks(): void {
+    this.messageServices.getAlltasks().subscribe(sub => {
+      this.allTask = sub.body; });
+  }
 
+  selectedTask() {
+    this.data.currentMessage.subscribe(message => { this.message = message;
+      this.getSelectedTask(+this.message); });
+  }
 
   getSelectedTask(id: number): void {
     if (id) {

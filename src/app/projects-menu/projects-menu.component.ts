@@ -11,8 +11,8 @@ import { DataService } from '../services/data.service';
 })
 export class ProjectsMenuComponent implements OnInit {
 
-  private projects: Project[];
-  private allTask: Task[];
+  projects: Project[];
+  allTask: Task[];
   count = 0;
   // httpResponse: HttpResponse<Project[]>;
 
