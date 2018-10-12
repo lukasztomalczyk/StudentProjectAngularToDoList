@@ -1,4 +1,6 @@
-
-  {{message}}
-
+  <div *ngIf="selectedTasks">
+    <li *ngFor="let task of selectedTasks">
+      <span>{{task.content}}</span>
+    </li>
+  </div>
   <app-add-task></app-add-task>

@@ -13,7 +13,7 @@ import { DataService } from '../services/data.service';
 export class ProjectsMenuComponent implements OnInit {
 
   projects: Project[];
-  httpResponse: HttpResponse<Project[]>;
+  // httpResponse: HttpResponse<Project[]>;
 
   constructor(private messageServices: MessageService,
             private data: DataService) {
