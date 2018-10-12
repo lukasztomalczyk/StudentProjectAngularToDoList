@@ -8,6 +8,16 @@ import {AuthService} from '../services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  userLogin = false;
+
+  constructor(private auth: AuthService) {}
+
   ngOnInit() {
+    this.userLoged();
   }
+
+  userLoged() {
+    this.auth.currentUserAuth.subscribe(user => this.userLogin = user);
+  }
+
 }

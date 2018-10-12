@@ -20,28 +20,36 @@ export class UserNavComponent implements OnInit {
   userLogin = false;
 
   constructor(private formBuilder: FormBuilder,
-              private authServices: AuthService,
-              private route: Router) { }
+              private authServices: AuthService) { }
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
       name: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+    this.UserIsLoged();
+  }
+
+  UserIsLoged() {
+    this.authServices.currentUserAuth.subscribe(user => { this.userLogin = user; });
   }
 
   login() {
     this.submitted = true;
 
-    if (this.userForm.invalid) { return; }
+    if (this.userForm.invalid) {
+      console.log('formularz');
+      return; }
 
     if (this.authServices.login(this.userForm.controls.name.value,
         this.userForm.controls.password.value)) {
-        this.userLogin = true;
+        this.authServices.setLoggedIn(true);
+        console.log('zalogowany');
       } else {
         this.userForm.controls.name.setErrors({'nomatch': true});
         this.userForm.controls.password.setErrors({'nomatch': true});
-        this.userLogin = false;
+        this.authServices.setLoggedIn(false);
+        console.log('nie zalogowany');
       }
   }
 }
