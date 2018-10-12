@@ -1,8 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {MessageService} from '../services/message.service';
 import {Project} from './project';
-import {HttpResponse} from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import {Task} from '../selected-project/task';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -12,7 +11,9 @@ import { DataService } from '../services/data.service';
 })
 export class ProjectsMenuComponent implements OnInit {
 
-  projects: Project[];
+  private projects: Project[];
+  private allTask: Task[];
+  count = 0;
   // httpResponse: HttpResponse<Project[]>;
 
   constructor(private messageServices: MessageService,
@@ -20,6 +21,7 @@ export class ProjectsMenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadTasks();
     this.loadProject();
   }
 
@@ -29,6 +31,19 @@ export class ProjectsMenuComponent implements OnInit {
     });
   }
 
+  loadTasks(): void {
+    this.messageServices.getAlltasks().subscribe(data => {
+      this.allTask = data.body;
+    });
+  }
+
+  countTask(id: number): number {
+    if (!id || !this.allTask) {
+      return 0;
+    }
+    console.log(this.count++);
+      return this.allTask.filter(x => x.project_id === id).length;
+  }
 
   selectProject(id: number): void {
     this.data.changeMessage(id.toString());
