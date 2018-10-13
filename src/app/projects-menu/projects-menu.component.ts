@@ -17,7 +17,7 @@ export class ProjectsMenuComponent implements OnInit {
   // httpResponse: HttpResponse<Project[]>;
 
   constructor(private messageServices: MessageService,
-            private data: DataService) {
+            private dataServices: DataService) {
   }
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class ProjectsMenuComponent implements OnInit {
   loadProject(): void {
     this.messageServices.getProjects().subscribe(data => {
       this.projects = data.body;
+   //   this.dataServices.changeMessage(String(this.projects[0].id) + '.' + String(this.projects[0].name));
     });
   }
 
@@ -38,15 +39,15 @@ export class ProjectsMenuComponent implements OnInit {
   }
 
   countTask(id: number): number {
-    if (!id || !this.allTask) {
+    if (!id && !this.allTask) {
       return 0;
     }
-    console.log(this.count++);
+  //  console.log(this.count++);
       return this.allTask.filter(x => x.project_id === id).length;
   }
 
-  selectProject(id: number): void {
-    this.data.changeMessage(id.toString());
+  selectProject(id: number, value: string): void {
+    this.dataServices.changeMessage(id.toString() + '.' + value);
   }
 }
 

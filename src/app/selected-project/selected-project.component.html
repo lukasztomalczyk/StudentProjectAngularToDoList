@@ -1,6 +1,15 @@
+<br>
+<div class="card">
+    <div class="card-header">
+      {{dataArray[1] || 'ToDoList'}}
+    </div>
+</div>
+<br>
+<div *ngIf="!dataArray[0]" align="center"><b>Keep your tasks organized in project</b><br>
+      Group your tasks by goal or area of your life.</div>
   <div *ngIf="selectedTasks">
-    <li *ngFor="let task of selectedTasks">
-      <span>{{task.content}}</span>
-    </li>
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let task of selectedTasks">{{task.content}}</li>
+        </ul>
   </div>
-  <app-add-task></app-add-task>
+  <div *ngIf="dataArray[0]"><app-add-task></app-add-task></div>

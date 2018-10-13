@@ -14,6 +14,7 @@ export class SelectedProjectComponent implements OnInit {
 
   message: string;
   allTask: Task[];
+  dataArray: string[];
   selectedTasks: Task[];
 
   constructor(private data: DataService,
@@ -31,7 +32,8 @@ export class SelectedProjectComponent implements OnInit {
 
   selectedTask() {
     this.data.currentMessage.subscribe(message => { this.message = message;
-      this.getSelectedTask(+this.message); });
+      this.dataArray = this.message.split('.');
+      this.getSelectedTask(+this.dataArray[0]); });
   }
 
   getSelectedTask(id: number): void {
