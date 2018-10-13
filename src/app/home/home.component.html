@@ -1,8 +1,7 @@
 <nav class="navbar navbar-dark bg-primary justify-content-center">
     <span class="justify-content-end"><app-user-nav></app-user-nav></span>
 </nav>
-
-  <div *ngIf="!userLogin; then thenBlock; else elseBlock"></div>
+ <div *ngIf="!userLogin; then thenBlock; else elseBlock"></div>
 
  <ng-template #thenBlock>
 

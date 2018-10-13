@@ -1,3 +1,19 @@
 .pointer {
   cursor: pointer;
 }
+
+.arrow {
+  padding: 5px 10px 0px 50px;
+  background-image: url("../images/arrow_left.png");
+  background-repeat: no-repeat;
+  float: left;
+  cursor: pointer;
+}
+.arrow:active {
+  cursor: pointer;
+  color: black;
+  background-image: url("../images/arrow_down.png");
+  background-repeat: no-repeat;
+  float: left;
+  cursor: pointer;
+}

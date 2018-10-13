@@ -1,0 +1,16 @@
+.test {
+  height: 40px;
+  padding: 0px 0px 0px 50px;
+  background-image: url("../images/plus.png");
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+}
+.test:hover {
+  height: 40px;
+  background-image: url("../images/plus_active.png");
+  background-repeat: no-repeat;
+  display: block;
+  float: left;
+}
+

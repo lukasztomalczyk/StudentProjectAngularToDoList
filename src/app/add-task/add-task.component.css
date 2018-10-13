@@ -2,3 +2,19 @@
   cursor: pointer;
   color: black;
 }
+
+.add {
+  height: 40px;
+  padding: 5px 10px 0px 50px;
+  background-image: url("../images/plus.png");
+  background-repeat: no-repeat;
+  float: left;
+}
+.add:hover {
+  cursor: pointer;
+  color: black;
+  height: 40px;
+  background-image: url("../images/plus_active.png");
+  background-repeat: no-repeat;
+  float: left;
+}
